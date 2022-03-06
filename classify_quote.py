@@ -41,7 +41,7 @@ if not os.path.isfile(model_file):
 
 # Load the data
 with open(data_file, 'rb') as file:
-    train_df = pd.read_csv(file, na_values = -1)
+    train_df = pd.read_csv(file, sep=r'\s*,\s*', na_values = -1)
 # Load the pickled model
 with open(model_file, 'rb') as file:
     classifier_model = pickle.load(file)
