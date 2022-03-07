@@ -48,6 +48,9 @@ with open(model_file, 'rb') as file:
 
 # Preprocessing of the data
 
+# Drop the target on Train data
+train_df.drop(['QuoteConversion_Flag'], axis = 1)
+
 # Replace comma(,) in "Field10" by blank("")
 train_df["Field10"] = train_df["Field10"].apply(lambda x: x.replace(",", "")).astype(int)
 train_df.replace('-1', "")
