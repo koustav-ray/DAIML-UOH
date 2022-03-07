@@ -20,7 +20,7 @@ model_file = os.path.join(_cwd,'model','classifier.pkl')
 # If the data file is not present
 if not os.path.isfile(data_file): 
     # URL of the data file
-    url = r'https://github.com/koustav-ray/DAIML-UOH/blob/main/data/train.csv?raw=true'
+    url = r'https://media.githubusercontent.com/media/koustav-ray/DAIML-UOH/main/data/train.csv'
     # Download the data file
     resp = requests.get(url)
     # Open the data file to write the data
@@ -47,9 +47,6 @@ with open(model_file, 'rb') as file:
     classifier_model = pickle.load(file)
 
 # Preprocessing of the data
-
-# Drop the target on Train data
-train_df.drop(['QuoteConversion_Flag'], axis = 1)
 
 # Replace comma(,) in "Field10" by blank("")
 train_df["Field10"] = train_df["Field10"].apply(lambda x: x.replace(",", "")).astype(int)
