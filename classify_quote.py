@@ -30,7 +30,7 @@ if not os.path.isfile(model_file):
         fopen.write(resp.content)
 
 # Load the data
-train_df = pd.read_csv("https://media.githubusercontent.com/media/koustav-ray/DAIML-UOH/main/data/train.csv", na_values = -1)
+train_df = pd.read_csv("https://github.com/koustav-ray/DAIML-UOH/blob/main/data/train.csv?raw=true", na_values = -1)
 # Load the pickled model
 with open(model_file, 'rb') as file:
     classifier_model = pickle.load(file)
