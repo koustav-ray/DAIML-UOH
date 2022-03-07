@@ -96,6 +96,6 @@ def predict_proba(input_id):
         fetch_rowid = search_table.get(int(input_id))
         data_from_id = X_scaled[fetch_rowid,:].reshape(1,149)
         proba = classifier_model.predict_proba(data_from_id)
-        return str(round(proba[0,1]*100,2))+' %'
+        return str(round(proba[0,1]*100,2))+'%' + '. Predicted Quote Conversion Flag: '+str(prediction[0])
     except:
         return -1
