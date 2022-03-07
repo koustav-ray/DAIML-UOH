@@ -16,17 +16,7 @@ data_file = os.path.join(_cwd,'data','train.csv')
 # generate path of model agnostic to OS
 model_file = os.path.join(_cwd,'model','classifier.pkl')
 
-# If the model and vectorizer are not already present, download them
-# If the data file is not present
-if not os.path.isfile(data_file): 
-    # URL of the data file
-    url = r'https://media.githubusercontent.com/media/koustav-ray/DAIML-UOH/main/data/train.csv'
-    # Download the data file
-    resp = requests.get(url)
-    # Open the data file to write the data
-    with open(data_file, 'wb') as fopen:
-        # Write the data	
-        fopen.write(resp.content)
+# If the model and data file are not already present, download them
 
 # If the model is not present
 if not os.path.isfile(model_file):
@@ -40,8 +30,7 @@ if not os.path.isfile(model_file):
         fopen.write(resp.content)
 
 # Load the data
-with open(data_file, 'rb') as file:
-    train_df = pd.read_csv(file, sep=r'\s*,\s*', na_values = -1)
+train_df = pd.read_csv("https://media.githubusercontent.com/media/koustav-ray/DAIML-UOH/main/data/train.csv", na_values = -1)
 # Load the pickled model
 with open(model_file, 'rb') as file:
     classifier_model = pickle.load(file)
